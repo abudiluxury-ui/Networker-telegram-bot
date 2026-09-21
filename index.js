@@ -127,15 +127,14 @@ bot.on('photo', async (ctx) => {
             CONFIRM & ACTIVATE PLAN
           </a>
         </div>
-      `
-    });
-
-    session.step = 'COMPLETED';
-    ctx.reply("✅ Receipt received! Your payment submission has been dispatched for verification. Your Networker Pro plan will activate once confirmed.");
-
+        }
   } catch (err) {
     console.error("Error processing photo:", err);
-    ctx.reply("❌ Error submitting receipt. Please try bot.launch().then(() => {
+    ctx.reply("❌ Error submitting receipt. Please try again.");
+  }
+});
+
+bot.launch().then(() => {
   console.log("Bot running successfully!");
 }).catch((err) => {
   console.error("Failed to start bot:", err);
