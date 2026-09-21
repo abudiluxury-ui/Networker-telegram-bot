@@ -135,9 +135,11 @@ bot.on('photo', async (ctx) => {
 
   } catch (err) {
     console.error("Error processing photo:", err);
-    ctx.reply("❌ Error submitting receipt. Please try again.");
-  }
+    ctx.reply("❌ Error submitting receipt. Please try bot.launch().then(() => {
+  console.log("Bot running successfully!");
+}).catch((err) => {
+  console.error("Failed to start bot:", err);
 });
 
-bot.launch();
-console.log("Bot running successfully!");
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
